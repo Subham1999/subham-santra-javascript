@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>user registration</title>
+    <!-- bootstrap4 cdn link -->
+    <link rel="stylesheet"
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+    crossorigin="anonymous">
+
+    <script type="text/javascript">
+      function phone_no_check() {
+        var phone = document.getElementById('user_phone').value;
+        var rgx = /^[6-9]\d{9}$/;
+        if(rgx.test(phone) == false){
+          alert("invalid phone number");
+          return false;
+        }
+        return true;
+      }
+      function pass_check(){
+        var new_password = document.getElementById('user_password');
+        var confirm_password = document.getElementById('confirm_password');
+        if(confirm_password.value != new_password.value){
+          alert("password mismatch");
+          return false;
+        }
+        return false;
+      }
+      function check() {
+          return phone_no_check() && pass_check();
+      }
+    </script>
+    <style media="screen">
+      .footer:hover{
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body class="container text-center">
+    <div class="container">
+      <div class="card">
+        <div class="card-header">
+          Registration
+        </div>
+        <div class="container">
+          <p id="message"></p>
+        </div>
+        <div class="container mt-4">
+          <form>
+            <div class="form-group">
+              <label for="user_name">user name:</label>
+              <input type="text" id="user_name" name="" value="" required>
+            </div>
+
+            <div class="form-group">
+              <label for="user_name">mail address:</label>
+              <input type="mail" id="user_mail_id" name="" value="" required>
+            </div>
+
+            <div class="form-group">
+              <label for="user_name">phone number:</label>
+              <input type="text" id="user_phone" name="" value="" required>
+            </div>
+
+            <div class="form-group">
+              <label for="user_name">new password:</label>
+              <input type="password" id="user_password" name="" value="" required>
+            </div>
+
+            <div class="form-group">
+              <label for="user_name">confirm password:</label>
+              <input type="password" id="confirm_password" name="" value="" required>
+            </div>
+            <button type="" class="btn btn-primary" onclick="return check()">Submit</button>
+          </form>
+        </div>
+        <div class="card-footer mt-3 footer">
+          written by Subham Santra
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
